@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
 import java.util.List;
 
 public class Q03_AutomationExerciseQ01 {
@@ -15,6 +16,9 @@ public class Q03_AutomationExerciseQ01 {
 
         //2. Navigate to url 'http://automationexercise.com'
         driver.get("http://automationexercise.com");
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         //3. Verify that home page is visible successfully
         WebElement logo = driver.findElement(By.xpath("//img[@src='/static/images/home/logo.png']"));
@@ -82,6 +86,7 @@ public class Q03_AutomationExerciseQ01 {
         //13. Click 'Create Account button'
         driver.findElement(By.xpath("//button[@data-qa='create-account']")).click();
 
+
         //14. Verify that 'ACCOUNT CREATED!' is visible
         WebElement accCreated = driver.findElement(By.xpath("//*[text()='Account Created!']"));
         if(accCreated.isDisplayed()) {
@@ -92,6 +97,11 @@ public class Q03_AutomationExerciseQ01 {
 
         //15. Click 'Continue' button
         driver.findElement(By.xpath("//*[@data-qa='continue-button']")).click();
+        Thread.sleep(4000);
+        WebElement reklam = driver.findElement(By.xpath("//*[text()='Ad']"));
+        System.out.println(reklam.isDisplayed());
+        driver.findElement(By.xpath("//*[@d='M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z']")).click();
+
 
         //16. Verify that 'Logged in as username' is visible
         WebElement loggedInAsUsName = driver.findElement(By.xpath("//*[text()=' Logged in as ']"));
