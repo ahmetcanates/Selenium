@@ -9,5 +9,6 @@ public class C01_DriverMethods {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.amazon.com");
 
+
     }
 }
